@@ -21,11 +21,16 @@ namespace CSV2SQL.Forms.Controls
 
             if (GetSelectedFileItem().FileTable.IsReadyToUse)
             {
+                AddItemAction("Create script", CreateScript);
                 AddItemAction("Edit metadata", ViewEditMetadata);
                 AddItemAction("Reload", Reload);
                 AddItemAction("Delete", Delete);
                 AddItemAction("Open file", OpenFile);
             }
+        }
+        public void CreateScript(object sender, EventArgs e)
+        {
+            new ScriptForm(GetSelectedFileItem().FileTable).ShowDialog();
         }
 
         public void OpenFile(object sender, EventArgs e)

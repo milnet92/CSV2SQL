@@ -56,6 +56,13 @@
     <ApplicationIcon>banana.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DQSAutomateInterpreter, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\DQSAutomate\DQSAutomateInterpreter_NetFramework\bin\Debug\DQSAutomateInterpreter.dll</HintPath>
+    </Reference>
+    <Reference Include="FastColoredTextBox, Version=2.16.24.0, Culture=neutral, PublicKeyToken=fb8aa12b994ef61b, processorArchitecture=MSIL">
+      <HintPath>..\packages\FCTB.2.16.24\lib\FastColoredTextBox.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -94,6 +101,9 @@
     <Compile Include="Core\Log.cs" />
     <Compile Include="Core\LogEventArgs.cs" />
     <Compile Include="Core\FileTableManager.cs" />
+    <Compile Include="Core\Scripting\ConsoleCapture.cs" />
+    <Compile Include="Core\Scripting\ConsoleWriteEventArgs.cs" />
+    <Compile Include="Core\Scripting\InterpretEventArgs.cs" />
     <Compile Include="Core\Security\SecurityHelper.cs" />
     <Compile Include="Forms\AddEditConnection.cs">
       <SubType>Form</SubType>
@@ -106,6 +116,9 @@
     </Compile>
     <Compile Include="Forms\ConnectionDetails.Designer.cs">
       <DependentUpon>ConnectionDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Controls\CodeControl.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Forms\Controls\ConnectionsContextMenuStrip.cs" />
     <Compile Include="Forms\Controls\FileContextMenuStrip.cs" />
@@ -179,6 +192,12 @@
     <Compile Include="Forms\ParametersDialog.Designer.cs">
       <DependentUpon>ParametersDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ScriptForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ScriptForm.Designer.cs">
+      <DependentUpon>ScriptForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ViewEditFileTableMetadata.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,6 +240,9 @@
     <EmbeddedResource Include="Forms\ParametersDialog.resx">
       <DependentUpon>ParametersDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ScriptForm.resx">
+      <DependentUpon>ScriptForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ViewEditFileTableMetadata.resx">
       <DependentUpon>ViewEditFileTableMetadata.cs</DependentUpon>
     </EmbeddedResource>
@@ -234,6 +256,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -243,6 +266,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\testfile.dqs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -250,6 +274,7 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="banana.ico" />
+    <None Include="Resources\run.png" />
     <None Include="Resources\logo.png" />
   </ItemGroup>
   <ItemGroup>

@@ -66,6 +66,8 @@ namespace CSV2SQL.Core.Database
                     " " + col.SqlType + 
                     " " + "null";
             }
+            command += ", internal_RecordIdentifier INT IDENTITY(1, 1) primary key";
+
             command += ")";
 
             SqlCommand sqlcommand = new SqlCommand(command, _sqlConnection);

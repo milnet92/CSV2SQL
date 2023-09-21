@@ -102,6 +102,7 @@ namespace CSV2SQL.Forms.Controls
                     AllowUserToResizeRows = false,
                     ReadOnly = true
                 };
+
                 typeof(Control).InvokeMember("DoubleBuffered",
                       BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic,
                       null, dataGridView, new object[] { true });

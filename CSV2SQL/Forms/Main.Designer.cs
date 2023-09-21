@@ -41,10 +41,10 @@ namespace CSV2SQL.Forms
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutConnections = new System.Windows.Forms.TableLayoutPanel();
+            this.lbConnections = new CSV2SQL.Forms.Controls.CustomListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.lblTitleFiles = new System.Windows.Forms.Label();
-            this.lbConnections = new CSV2SQL.Forms.Controls.CustomListBox();
             this.lbFiles = new CSV2SQL.Forms.Controls.CustomListBox();
             this.mainTab = new CSV2SQL.Forms.Controls.FileTab();
             this.tsApplication.SuspendLayout();
@@ -158,7 +158,7 @@ namespace CSV2SQL.Forms
             // 
             this.splitContainer2.Panel2.Controls.Add(this.tableLayoutPanel2);
             this.splitContainer2.Size = new System.Drawing.Size(384, 590);
-            this.splitContainer2.SplitterDistance = 208;
+            this.splitContainer2.SplitterDistance = 207;
             this.splitContainer2.SplitterWidth = 5;
             this.splitContainer2.TabIndex = 0;
             // 
@@ -176,8 +176,25 @@ namespace CSV2SQL.Forms
             this.tableLayoutConnections.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutConnections.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutConnections.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutConnections.Size = new System.Drawing.Size(384, 208);
+            this.tableLayoutConnections.Size = new System.Drawing.Size(384, 207);
             this.tableLayoutConnections.TabIndex = 1;
+            // 
+            // lbConnections
+            // 
+            this.lbConnections.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbConnections.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.lbConnections.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbConnections.FormattingEnabled = true;
+            this.lbConnections.IntegralHeight = false;
+            this.lbConnections.ItemHeight = 30;
+            this.lbConnections.Location = new System.Drawing.Point(4, 29);
+            this.lbConnections.Margin = new System.Windows.Forms.Padding(4);
+            this.lbConnections.Name = "lbConnections";
+            this.lbConnections.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.lbConnections.Size = new System.Drawing.Size(376, 174);
+            this.lbConnections.TabIndex = 7;
+            this.lbConnections.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbConnections_MouseDoubleClick);
+            this.lbConnections.Resize += new System.EventHandler(this.lbConnections_Resize);
             // 
             // label1
             // 
@@ -205,7 +222,7 @@ namespace CSV2SQL.Forms
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(384, 377);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(384, 378);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // lblTitleFiles
@@ -221,23 +238,6 @@ namespace CSV2SQL.Forms
             this.lblTitleFiles.Text = "Files";
             this.lblTitleFiles.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lbConnections
-            // 
-            this.lbConnections.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbConnections.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.lbConnections.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbConnections.FormattingEnabled = true;
-            this.lbConnections.IntegralHeight = false;
-            this.lbConnections.ItemHeight = 30;
-            this.lbConnections.Location = new System.Drawing.Point(4, 29);
-            this.lbConnections.Margin = new System.Windows.Forms.Padding(4);
-            this.lbConnections.Name = "lbConnections";
-            this.lbConnections.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.lbConnections.Size = new System.Drawing.Size(376, 175);
-            this.lbConnections.TabIndex = 7;
-            this.lbConnections.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbConnections_MouseDoubleClick);
-            this.lbConnections.Resize += new System.EventHandler(this.lbConnections_Resize);
-            // 
             // lbFiles
             // 
             this.lbFiles.AllowDrop = true;
@@ -250,7 +250,7 @@ namespace CSV2SQL.Forms
             this.lbFiles.Location = new System.Drawing.Point(4, 29);
             this.lbFiles.Margin = new System.Windows.Forms.Padding(4);
             this.lbFiles.Name = "lbFiles";
-            this.lbFiles.Size = new System.Drawing.Size(376, 344);
+            this.lbFiles.Size = new System.Drawing.Size(376, 345);
             this.lbFiles.TabIndex = 1;
             this.lbFiles.DragDrop += new System.Windows.Forms.DragEventHandler(this.lbFiles_DragDrop);
             this.lbFiles.DragEnter += new System.Windows.Forms.DragEventHandler(this.lbFiles_DragEnter);
