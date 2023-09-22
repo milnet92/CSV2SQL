@@ -26,6 +26,7 @@ namespace CSV2SQL.Forms
 
         public ScriptForm(FileTable fileTable)
         {
+            this.Icon = CSV2SQL.Properties.Resources.banana;
             this.fileTable = fileTable;
 
             InitializeComponent();

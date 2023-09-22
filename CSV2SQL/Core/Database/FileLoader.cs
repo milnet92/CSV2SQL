@@ -11,7 +11,6 @@ namespace CSV2SQL.Core.Database
     public abstract class FileLoader
     {
         private static List<Type> AvailableTypes;
-
         public string Filename { get; private set; }
         public string Tablename { get; private set; }
         public int Registers { get; internal set; }

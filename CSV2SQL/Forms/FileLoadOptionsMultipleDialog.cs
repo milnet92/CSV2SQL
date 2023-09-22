@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using CSV2SQL.Core;
 using CSV2SQL.Core.Database;
@@ -20,6 +14,8 @@ namespace CSV2SQL.Forms
         List<int> connectionIds;
         public FileLoadOptionsMultipleDialog(List<int> connectionIds, FileLoadOptions defaultOptions)
         {
+            this.Icon = CSV2SQL.Properties.Resources.banana;
+
             DialogResult = DialogResult.Cancel;
 
             this.defaultOptions = defaultOptions;

@@ -121,6 +121,7 @@
             this.Controls.Add(this.splitContainer);
             this.Controls.Add(this.toolBoxPannel);
             this.Name = "ScriptForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ScriptForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ScriptForm_FormClosing);
             this.toolBoxPannel.ResumeLayout(false);

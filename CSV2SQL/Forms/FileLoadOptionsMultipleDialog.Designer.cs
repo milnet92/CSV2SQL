@@ -191,13 +191,13 @@
             this.label7.TabIndex = 12;
             this.label7.Text = "Connection";
             // 
-            // conComboBox
+            // comboConnection
             // 
             this.comboConnection.DisplayMember = "Name";
             this.comboConnection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboConnection.FormattingEnabled = true;
             this.comboConnection.Location = new System.Drawing.Point(113, 24);
-            this.comboConnection.Name = "conComboBox";
+            this.comboConnection.Name = "comboConnection";
             this.comboConnection.Size = new System.Drawing.Size(723, 24);
             this.comboConnection.TabIndex = 13;
             // 
@@ -265,7 +265,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "FileLoadOptionsMultipleDialog";
-            this.Text = "FileLoadOptionsMultipleDialog";
+            this.Text = "Import file into multiple connections";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
