@@ -41,13 +41,15 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btCancel = new System.Windows.Forms.Button();
             this.btAccept = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cbEnableScripting = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgColumns)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(33, 63);
+            this.label1.Location = new System.Drawing.Point(33, 54);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 16);
@@ -57,7 +59,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(79, 31);
+            this.label2.Location = new System.Drawing.Point(79, 17);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 16);
@@ -66,7 +68,7 @@
             // 
             // tbPath
             // 
-            this.tbPath.Location = new System.Drawing.Point(140, 27);
+            this.tbPath.Location = new System.Drawing.Point(140, 13);
             this.tbPath.Margin = new System.Windows.Forms.Padding(4);
             this.tbPath.Name = "tbPath";
             this.tbPath.ReadOnly = true;
@@ -75,7 +77,7 @@
             // 
             // tbTableName
             // 
-            this.tbTableName.Location = new System.Drawing.Point(140, 59);
+            this.tbTableName.Location = new System.Drawing.Point(140, 50);
             this.tbTableName.Margin = new System.Windows.Forms.Padding(4);
             this.tbTableName.Name = "tbTableName";
             this.tbTableName.Size = new System.Drawing.Size(223, 22);
@@ -90,11 +92,11 @@
             this.ColumnName,
             this.DataType,
             this.ColumnLength});
-            this.dgColumns.Location = new System.Drawing.Point(37, 121);
+            this.dgColumns.Location = new System.Drawing.Point(37, 147);
             this.dgColumns.Margin = new System.Windows.Forms.Padding(4);
             this.dgColumns.Name = "dgColumns";
             this.dgColumns.RowHeadersWidth = 51;
-            this.dgColumns.Size = new System.Drawing.Size(600, 311);
+            this.dgColumns.Size = new System.Drawing.Size(600, 285);
             this.dgColumns.TabIndex = 4;
             // 
             // ColumnName
@@ -124,7 +126,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(33, 101);
+            this.label3.Location = new System.Drawing.Point(34, 127);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 16);
@@ -133,7 +135,7 @@
             // 
             // tbSchema
             // 
-            this.tbSchema.Location = new System.Drawing.Point(464, 59);
+            this.tbSchema.Location = new System.Drawing.Point(464, 50);
             this.tbSchema.Margin = new System.Windows.Forms.Padding(4);
             this.tbSchema.Name = "tbSchema";
             this.tbSchema.Size = new System.Drawing.Size(172, 22);
@@ -142,7 +144,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(395, 63);
+            this.label4.Location = new System.Drawing.Point(395, 54);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(57, 16);
@@ -171,11 +173,33 @@
             this.btAccept.UseVisualStyleBackColor = true;
             this.btAccept.Click += new System.EventHandler(this.btAccept_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(22, 94);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(112, 16);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Scripting enabled";
+            // 
+            // cbEnableScripting
+            // 
+            this.cbEnableScripting.AutoSize = true;
+            this.cbEnableScripting.Location = new System.Drawing.Point(154, 93);
+            this.cbEnableScripting.Name = "cbEnableScripting";
+            this.cbEnableScripting.Size = new System.Drawing.Size(18, 17);
+            this.cbEnableScripting.TabIndex = 11;
+            this.cbEnableScripting.UseVisualStyleBackColor = true;
+            this.cbEnableScripting.CheckedChanged += new System.EventHandler(this.cbEnableScripting_CheckedChanged);
+            // 
             // ViewEditFileTableMetadata
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(676, 498);
+            this.Controls.Add(this.cbEnableScripting);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.dgColumns);
             this.Controls.Add(this.btAccept);
             this.Controls.Add(this.btCancel);
@@ -210,5 +234,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnName;
         private System.Windows.Forms.DataGridViewComboBoxColumn DataType;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnLength;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.CheckBox cbEnableScripting;
     }
 }

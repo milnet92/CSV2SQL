@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Diagnostics.Tracing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +20,13 @@ namespace CSV2SQL.Forms.Controls
         {
             base.UpdateItemActions();
 
-            if (GetSelectedFileItem().FileTable.IsReadyToUse)
+            var selectedFileTable = GetSelectedFileItem().FileTable;
+
+            if (selectedFileTable.IsReadyToUse)
             {
-                AddItemAction("Create script", CreateScript);
+                if (selectedFileTable.FileLoadOptions.EnableScripts)
+                    AddItemAction("Create script", CreateScript);
+
                 AddItemAction("Edit metadata", ViewEditMetadata);
                 AddItemAction("Reload", Reload);
                 AddItemAction("Delete", Delete);

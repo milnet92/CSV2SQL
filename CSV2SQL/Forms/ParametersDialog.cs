@@ -22,6 +22,7 @@ namespace CSV2SQL.Forms
             cbShowOptions.Checked = ApplicationConfig.Instance.ShowOptions;
             cbChangeTableName.Checked = ApplicationConfig.Instance.ChangeTableNameForSameFile;
             tbPreviewRowCount.Text = ApplicationConfig.Instance.PreviewRowCount.ToString();
+            cbScriptsEnabled.Checked = ApplicationConfig.Instance.EnableScritps;
         }
 
         private void btAccept_Click(object sender, EventArgs e)
@@ -31,6 +32,7 @@ namespace CSV2SQL.Forms
             ApplicationConfig.Instance.ShowOptions = cbShowOptions.Checked;
             ApplicationConfig.Instance.ChangeTableNameForSameFile = cbChangeTableName.Checked;
             ApplicationConfig.Instance.PreviewRowCount = int.Parse(tbPreviewRowCount.Text);
+            ApplicationConfig.Instance.EnableScritps = cbScriptsEnabled.Checked;
 
             ApplicationConfig.Save();
 
@@ -44,7 +46,7 @@ namespace CSV2SQL.Forms
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar >= '0' && e.KeyChar <= '9') || e.KeyChar == (char)8) //The  character represents a backspace
+            if ((e.KeyChar >= '0' && e.KeyChar <= '9') || e.KeyChar == (char)8) //The  character 8 represents a backspace
             {
                 e.Handled = false; //Do not reject the input
             }

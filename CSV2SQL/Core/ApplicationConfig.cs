@@ -41,6 +41,9 @@ namespace CSV2SQL.Core
         [XmlElement("PreviewRowCount")]
         public int PreviewRowCount { get; set; } = 100;
 
+        [XmlElement("EnableScripts")]
+        public bool EnableScritps { get; set; }
+
         public ApplicationConfig()
         {
             DefaultSchema = DEF_SCHEMA;
@@ -52,7 +55,7 @@ namespace CSV2SQL.Core
         {
             bool isFileCreated = false;
 
-            // Create configuration file if not exists
+            // Create configuration file if it doesn't exists
             if (!File.Exists(CSV2SQL.Properties.Resources.ConfigurationFileName))
             {
                 isFileCreated = true;
@@ -61,7 +64,7 @@ namespace CSV2SQL.Core
 
             XmlSerializer serializer = new XmlSerializer(typeof(ApplicationConfig));
             try
-            {
+            {   
                 using (TextReader reader = new StringReader(File.ReadAllText(CSV2SQL.Properties.Resources.ConfigurationFileName)))
                 {
                     Instance = (ApplicationConfig)serializer.Deserialize(reader);

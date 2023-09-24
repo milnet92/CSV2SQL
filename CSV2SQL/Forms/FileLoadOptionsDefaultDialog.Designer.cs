@@ -44,6 +44,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btCancel = new System.Windows.Forms.Button();
             this.btAccept = new System.Windows.Forms.Button();
+            this.cbEnableScripts = new System.Windows.Forms.CheckBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -51,7 +53,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(49, 48);
+            this.label1.Location = new System.Drawing.Point(49, 37);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 16);
@@ -60,8 +62,8 @@
             // 
             // tbTableName
             // 
-            this.tbTableName.Location = new System.Drawing.Point(155, 44);
-            this.tbTableName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbTableName.Location = new System.Drawing.Point(155, 33);
+            this.tbTableName.Margin = new System.Windows.Forms.Padding(4);
             this.tbTableName.Name = "tbTableName";
             this.tbTableName.Size = new System.Drawing.Size(217, 22);
             this.tbTableName.TabIndex = 1;
@@ -69,7 +71,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(72, 86);
+            this.label2.Location = new System.Drawing.Point(72, 67);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 16);
@@ -78,14 +80,16 @@
             // 
             // tbSchema
             // 
-            this.tbSchema.Location = new System.Drawing.Point(155, 82);
-            this.tbSchema.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbSchema.Location = new System.Drawing.Point(155, 63);
+            this.tbSchema.Margin = new System.Windows.Forms.Padding(4);
             this.tbSchema.Name = "tbSchema";
             this.tbSchema.Size = new System.Drawing.Size(77, 22);
             this.tbSchema.TabIndex = 3;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbEnableScripts);
+            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.cbFirstRowHeader);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.tbSeparator);
@@ -95,9 +99,9 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(39, 30);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(381, 213);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
@@ -106,8 +110,8 @@
             // cbFirstRowHeader
             // 
             this.cbFirstRowHeader.AutoSize = true;
-            this.cbFirstRowHeader.Location = new System.Drawing.Point(155, 172);
-            this.cbFirstRowHeader.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbFirstRowHeader.Location = new System.Drawing.Point(155, 144);
+            this.cbFirstRowHeader.Margin = new System.Windows.Forms.Padding(4);
             this.cbFirstRowHeader.Name = "cbFirstRowHeader";
             this.cbFirstRowHeader.Size = new System.Drawing.Size(18, 17);
             this.cbFirstRowHeader.TabIndex = 7;
@@ -116,7 +120,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(24, 172);
+            this.label4.Location = new System.Drawing.Point(24, 144);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(102, 16);
@@ -125,8 +129,8 @@
             // 
             // tbSeparator
             // 
-            this.tbSeparator.Location = new System.Drawing.Point(155, 121);
-            this.tbSeparator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbSeparator.Location = new System.Drawing.Point(155, 103);
+            this.tbSeparator.Margin = new System.Windows.Forms.Padding(4);
             this.tbSeparator.Name = "tbSeparator";
             this.tbSeparator.Size = new System.Drawing.Size(77, 22);
             this.tbSeparator.TabIndex = 5;
@@ -134,7 +138,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(32, 124);
+            this.label3.Location = new System.Drawing.Point(32, 106);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(98, 16);
@@ -148,9 +152,9 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Location = new System.Drawing.Point(465, 30);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(325, 213);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
@@ -159,7 +163,7 @@
             // tbServer
             // 
             this.tbServer.Location = new System.Drawing.Point(103, 44);
-            this.tbServer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbServer.Margin = new System.Windows.Forms.Padding(4);
             this.tbServer.Name = "tbServer";
             this.tbServer.ReadOnly = true;
             this.tbServer.Size = new System.Drawing.Size(192, 22);
@@ -168,7 +172,7 @@
             // tbDatabase
             // 
             this.tbDatabase.Location = new System.Drawing.Point(103, 82);
-            this.tbDatabase.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbDatabase.Margin = new System.Windows.Forms.Padding(4);
             this.tbDatabase.Name = "tbDatabase";
             this.tbDatabase.ReadOnly = true;
             this.tbDatabase.Size = new System.Drawing.Size(192, 22);
@@ -197,7 +201,7 @@
             // btCancel
             // 
             this.btCancel.Location = new System.Drawing.Point(691, 263);
-            this.btCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btCancel.Name = "btCancel";
             this.btCancel.Size = new System.Drawing.Size(100, 28);
             this.btCancel.TabIndex = 6;
@@ -208,13 +212,33 @@
             // btAccept
             // 
             this.btAccept.Location = new System.Drawing.Point(568, 263);
-            this.btAccept.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btAccept.Margin = new System.Windows.Forms.Padding(4);
             this.btAccept.Name = "btAccept";
             this.btAccept.Size = new System.Drawing.Size(100, 28);
             this.btAccept.TabIndex = 7;
             this.btAccept.Text = "Accept";
             this.btAccept.UseVisualStyleBackColor = true;
             this.btAccept.Click += new System.EventHandler(this.btAccept_Click);
+            // 
+            // cbEnableScripts
+            // 
+            this.cbEnableScripts.AutoSize = true;
+            this.cbEnableScripts.Location = new System.Drawing.Point(155, 175);
+            this.cbEnableScripts.Margin = new System.Windows.Forms.Padding(4);
+            this.cbEnableScripts.Name = "cbEnableScripts";
+            this.cbEnableScripts.Size = new System.Drawing.Size(18, 17);
+            this.cbEnableScripts.TabIndex = 9;
+            this.cbEnableScripts.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(23, 176);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(103, 16);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "Enable scripting";
             // 
             // FileLoadOptionsDefaultDialog
             // 
@@ -225,10 +249,9 @@
             this.Controls.Add(this.btCancel);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FileLoadOptionsDefaultDialog";
             this.Text = "Load file";
-            this.Load += new System.EventHandler(this.FileLoadOptionsDefaultDialog_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -255,5 +278,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btCancel;
         private System.Windows.Forms.Button btAccept;
+        private System.Windows.Forms.CheckBox cbEnableScripts;
+        private System.Windows.Forms.Label label7;
     }
 }

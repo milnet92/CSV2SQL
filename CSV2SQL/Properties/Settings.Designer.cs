@@ -25,8 +25,8 @@ namespace CSV2SQL.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("import \"Core\"\r\nimport \"Sql\"\r\nimport \"Collections\"\r\n\r\n{\r\n\trecord = Record(\"##\")\r\n}" +
-            "")]
+        [global::System.Configuration.DefaultSettingValueAttribute("import \"Core\"\r\nimport \"Sql\"\r\nimport \"Collections\"\r\n\r\n{\r\n\trecord = Record(\"##\")\r\n\t" +
+            "\r\n\twhile select * from record\r\n\t{\r\n\t\tprint(record)\r\n\t}\r\n}")]
         public string SourceCode {
             get {
                 return ((string)(this["SourceCode"]));

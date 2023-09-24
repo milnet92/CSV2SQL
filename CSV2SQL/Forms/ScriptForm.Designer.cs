@@ -48,7 +48,7 @@
             this.toolBoxPannel.Dock = System.Windows.Forms.DockStyle.Top;
             this.toolBoxPannel.Location = new System.Drawing.Point(0, 0);
             this.toolBoxPannel.Name = "toolBoxPannel";
-            this.toolBoxPannel.Size = new System.Drawing.Size(800, 33);
+            this.toolBoxPannel.Size = new System.Drawing.Size(1009, 33);
             this.toolBoxPannel.TabIndex = 2;
             // 
             // toolStrip1
@@ -58,7 +58,7 @@
             this.runButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(800, 32);
+            this.toolStrip1.Size = new System.Drawing.Size(1009, 32);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -88,8 +88,8 @@
             // splitContainer.Panel2
             // 
             this.splitContainer.Panel2.Controls.Add(this.outputTextBox);
-            this.splitContainer.Size = new System.Drawing.Size(800, 417);
-            this.splitContainer.SplitterDistance = 272;
+            this.splitContainer.Size = new System.Drawing.Size(1009, 581);
+            this.splitContainer.SplitterDistance = 378;
             this.splitContainer.TabIndex = 3;
             // 
             // codePanel
@@ -97,7 +97,7 @@
             this.codePanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.codePanel.Location = new System.Drawing.Point(0, 0);
             this.codePanel.Name = "codePanel";
-            this.codePanel.Size = new System.Drawing.Size(800, 272);
+            this.codePanel.Size = new System.Drawing.Size(1009, 378);
             this.codePanel.TabIndex = 6;
             // 
             // outputTextBox
@@ -109,7 +109,7 @@
             this.outputTextBox.Name = "outputTextBox";
             this.outputTextBox.ReadOnly = true;
             this.outputTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.outputTextBox.Size = new System.Drawing.Size(800, 141);
+            this.outputTextBox.Size = new System.Drawing.Size(1009, 199);
             this.outputTextBox.TabIndex = 2;
             this.outputTextBox.WordWrap = false;
             // 
@@ -117,7 +117,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1009, 614);
             this.Controls.Add(this.splitContainer);
             this.Controls.Add(this.toolBoxPannel);
             this.Name = "ScriptForm";

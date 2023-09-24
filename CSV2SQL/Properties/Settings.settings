@@ -9,6 +9,11 @@ import "Collections"
 
 {
 	record = Record("##")
+	
+	while select * from record
+	{
+		print(record)
+	}
 }</Value>
     </Setting>
   </Settings>

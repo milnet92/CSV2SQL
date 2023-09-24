@@ -17,6 +17,7 @@ namespace CSV2SQL.Core.Database
                     FirstRowHeader = true,
                     Schema = ApplicationConfig.Instance.DefaultSchema,
                     Separator = ApplicationConfig.Instance.DefaultSeparator,
+                    EnableScripts = ApplicationConfig.Instance.EnableScritps
                 };
             }
         }
@@ -26,6 +27,7 @@ namespace CSV2SQL.Core.Database
         public string TableName { get; set; }
         public string Separator { get; set; }
         public bool IsFromTemplate { get; set; }
+        public bool EnableScripts {  get; set; }
         public FileTableTemplate Template { get; set; }
 
         public static bool ShouldShowOptionsDialog(List<int> connectionIds)
@@ -61,7 +63,10 @@ namespace CSV2SQL.Core.Database
                 FirstRowHeader = FirstRowHeader,
                 Schema = Schema,
                 TableName = TableName,
-                Separator = Separator
+                Separator = Separator,
+                EnableScripts = EnableScripts,
+                Template = Template,
+                IsFromTemplate = IsFromTemplate,
             };
         }
     }

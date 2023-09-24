@@ -70,7 +70,8 @@ namespace CSV2SQL.Core
                 Schema = fileTable.Schema,
                 Separator = ApplicationConfig.Instance.DefaultSeparator,
                 TableName = fileTable.TableName,
-                Template = template
+                Template = template,
+                EnableScripts = fileTable.FileLoadOptions.EnableScripts,
             });
 
         }

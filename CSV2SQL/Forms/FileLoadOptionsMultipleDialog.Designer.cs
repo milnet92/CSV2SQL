@@ -43,6 +43,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.comboConnection = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.cbEnableScripting = new System.Windows.Forms.CheckBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.tbSchema = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tbTableName = new System.Windows.Forms.TextBox();
@@ -133,11 +135,11 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.tbSeparator);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(24, 196);
+            this.groupBox1.Location = new System.Drawing.Point(24, 187);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(381, 93);
+            this.groupBox1.Size = new System.Drawing.Size(381, 102);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "File options";
@@ -203,16 +205,39 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.cbEnableScripting);
+            this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.tbSchema);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.tbTableName);
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Location = new System.Drawing.Point(24, 76);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(381, 113);
+            this.groupBox3.Size = new System.Drawing.Size(381, 104);
             this.groupBox3.TabIndex = 14;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Table options";
+            // 
+            // cbEnableScripting
+            // 
+            this.cbEnableScripting.AutoSize = true;
+            this.cbEnableScripting.Location = new System.Drawing.Point(335, 69);
+            this.cbEnableScripting.Margin = new System.Windows.Forms.Padding(4);
+            this.cbEnableScripting.Name = "cbEnableScripting";
+            this.cbEnableScripting.Size = new System.Drawing.Size(18, 17);
+            this.cbEnableScripting.TabIndex = 11;
+            this.cbEnableScripting.UseVisualStyleBackColor = true;
+            this.cbEnableScripting.CheckedChanged += new System.EventHandler(this.cbEnableScripting_CheckedChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(221, 69);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(103, 16);
+            this.label8.TabIndex = 10;
+            this.label8.Text = "Enable scripting";
             // 
             // tbSchema
             // 
@@ -298,5 +323,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbSchema;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox cbEnableScripting;
+        private System.Windows.Forms.Label label8;
     }
 }

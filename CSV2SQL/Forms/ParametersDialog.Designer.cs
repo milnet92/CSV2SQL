@@ -34,6 +34,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txSchema = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbScriptsEnabled = new System.Windows.Forms.CheckBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.tbPreviewRowCount = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.cbShowOptions = new System.Windows.Forms.CheckBox();
@@ -100,6 +102,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.cbScriptsEnabled);
+            this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.tbPreviewRowCount);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.cbShowOptions);
@@ -115,9 +119,29 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "File";
             // 
+            // cbScriptsEnabled
+            // 
+            this.cbScriptsEnabled.AutoSize = true;
+            this.cbScriptsEnabled.Location = new System.Drawing.Point(155, 123);
+            this.cbScriptsEnabled.Margin = new System.Windows.Forms.Padding(4);
+            this.cbScriptsEnabled.Name = "cbScriptsEnabled";
+            this.cbScriptsEnabled.Size = new System.Drawing.Size(18, 17);
+            this.cbScriptsEnabled.TabIndex = 9;
+            this.cbScriptsEnabled.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(33, 122);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(103, 16);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Enable scripting";
+            // 
             // tbPreviewRowCount
             // 
-            this.tbPreviewRowCount.Location = new System.Drawing.Point(155, 121);
+            this.tbPreviewRowCount.Location = new System.Drawing.Point(155, 87);
             this.tbPreviewRowCount.Margin = new System.Windows.Forms.Padding(4);
             this.tbPreviewRowCount.Name = "tbPreviewRowCount";
             this.tbPreviewRowCount.Size = new System.Drawing.Size(62, 22);
@@ -127,7 +151,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(27, 125);
+            this.label5.Location = new System.Drawing.Point(50, 90);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(86, 16);
@@ -137,7 +161,7 @@
             // cbShowOptions
             // 
             this.cbShowOptions.AutoSize = true;
-            this.cbShowOptions.Location = new System.Drawing.Point(155, 84);
+            this.cbShowOptions.Location = new System.Drawing.Point(155, 62);
             this.cbShowOptions.Margin = new System.Windows.Forms.Padding(4);
             this.cbShowOptions.Name = "cbShowOptions";
             this.cbShowOptions.Size = new System.Drawing.Size(18, 17);
@@ -147,16 +171,16 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(49, 84);
+            this.label3.Location = new System.Drawing.Point(8, 61);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(87, 16);
+            this.label3.Size = new System.Drawing.Size(128, 16);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Show options";
+            this.label3.Text = "Show options dialog";
             // 
             // txSeparator
             // 
-            this.txSeparator.Location = new System.Drawing.Point(155, 38);
+            this.txSeparator.Location = new System.Drawing.Point(154, 25);
             this.txSeparator.Margin = new System.Windows.Forms.Padding(4);
             this.txSeparator.Name = "txSeparator";
             this.txSeparator.Size = new System.Drawing.Size(72, 22);
@@ -165,7 +189,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(27, 42);
+            this.label2.Location = new System.Drawing.Point(26, 28);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(110, 16);
@@ -185,7 +209,7 @@
             // 
             // btAccept
             // 
-            this.btAccept.Location = new System.Drawing.Point(116, 322);
+            this.btAccept.Location = new System.Drawing.Point(115, 322);
             this.btAccept.Margin = new System.Windows.Forms.Padding(4);
             this.btAccept.Name = "btAccept";
             this.btAccept.Size = new System.Drawing.Size(100, 28);
@@ -232,5 +256,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tbPreviewRowCount;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.CheckBox cbScriptsEnabled;
+        private System.Windows.Forms.Label label6;
     }
 }

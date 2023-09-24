@@ -47,19 +47,15 @@ namespace CSV2SQL.Forms
 
         private void btAccept_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.OK;
-
             Options.Separator = tbSeparator.Text;
             Options.Schema = tbSchema.Text;
             Options.FirstRowHeader = cbFirstRowHeader.Checked;
             Options.TableName = tbTableName.Text;
+            Options.EnableScripts = cbEnableScripts.Checked;
+
+            DialogResult = DialogResult.OK;
 
             this.Close();
-        }
-
-        private void FileLoadOptionsDefaultDialog_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

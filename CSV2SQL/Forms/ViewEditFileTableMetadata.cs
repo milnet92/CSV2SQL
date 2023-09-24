@@ -1,11 +1,14 @@
 ﻿using CSV2SQL.Core;
 using CSV2SQL.Core.Database;
+using CSV2SQL.Forms.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Tracing;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,7 +20,9 @@ namespace CSV2SQL.Forms
         private bool executeActions;
 
         private bool metadataChanged;
-        private bool namesChanged;
+        private bool tableNameChanged;
+        private bool scriptingEnabledChanged;
+
         public readonly FileTable FileTable;
 
         public ViewEditFileTableMetadata(FileTable fileTable, bool executeActions)
@@ -42,6 +47,7 @@ namespace CSV2SQL.Forms
             tbPath.Text = FileTable.Path;
             tbTableName.Text = FileTable.TableName;
             tbSchema.Text = FileTable.Schema;
+            cbEnableScripting.Checked = FileTable.FileLoadOptions.EnableScripts;
 
             foreach (var col in FileTable.Columns)
             {
@@ -67,31 +73,48 @@ namespace CSV2SQL.Forms
             {
                 var result = DialogResult.OK;
 
-                if (metadataChanged)
+                if (metadataChanged || scriptingEnabledChanged)
                 {
                     result = MessageBox.Show("Metadata has been modified. Changes REQUIRE to reupload the file. Do you want to continue?",
                         "Metadata edited", MessageBoxButtons.OKCancel);
                 }
-                else if (namesChanged)
+                else if (tableNameChanged)
                 {
                     result = MessageBox.Show("Metadata has been modified. Changes DO NOT REQUIRE to reupload the file. Do you want to continue?",
                         "Metadata edited", MessageBoxButtons.OKCancel);
                 }
 
-                DialogResult = result;
-
                 if (result == DialogResult.OK)
                 {
-                    if (namesChanged)
+                    FileTable.FileLoadOptions.EnableScripts = cbEnableScripting.Checked;
+
+                    if (tableNameChanged)
                     {
                         FileTableManager.Instance.ModifyTableName(FileTable.Path, FileTable.ConnectionId, tbTableName.Text, tbSchema.Text);
                     }
 
+                    // Table reload will already change the template
                     if (metadataChanged)
                     {
                         FileTableManager.Instance.ModifyTemplate(FileTable.Path, FileTable.ConnectionId, template);
                     }
+                    else if (scriptingEnabledChanged)
+                    {
+                        FileTableManager.Instance.Remove(FileTable.Path, FileTable.ConnectionId);
+                        FileTableManager.Instance.StartLoad(FileTable.ConnectionId, FileTable.Path, new FileLoadOptions()
+                        {
+                            FirstRowHeader = FileTable.FirstRowHeader,
+                            IsFromTemplate = template != null,
+                            Schema = FileTable.Schema,
+                            Separator = ApplicationConfig.Instance.DefaultSeparator,
+                            TableName = FileTable.TableName,
+                            Template = template,
+                            EnableScripts = FileTable.FileLoadOptions.EnableScripts,
+                        });
+                    }
                 }
+
+                DialogResult = result;
 
                 this.Close();
             }
@@ -133,7 +156,12 @@ namespace CSV2SQL.Forms
 
         private void NamesTextBoxTextChanged(object sender, EventArgs e)
         {
-            namesChanged = true;
+            tableNameChanged = true;
+        }
+
+        private void cbEnableScripting_CheckedChanged(object sender, EventArgs e)
+        {
+            scriptingEnabledChanged = true;
         }
     }
 }

@@ -18,6 +18,9 @@ namespace CSV2SQL
         {
             ApplicationConfig.Initialize();
 
+            if (Environment.OSVersion.Version.Major >= 6)
+                SetProcessDPIAware();
+
             if (ApplicationConfig.Instance.FirstTimeOpen)
             {
                 MessageBox.Show("A new version is released, please check all our new super features :D");
@@ -36,5 +39,9 @@ namespace CSV2SQL
                 DBConnectionManager.CloseAllConnections();
             }
         }
+
+
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        private static extern bool SetProcessDPIAware();
     }
 }
