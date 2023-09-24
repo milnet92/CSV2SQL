@@ -24,6 +24,9 @@ namespace CSV2SQL.Forms
         FileTable fileTable;
         ConsoleCapture consoleCapture = new ConsoleCapture();
 
+        Thread executingThread = null;
+        bool running = false;
+
         public ScriptForm(FileTable fileTable)
         {
             this.Icon = CSV2SQL.Properties.Resources.banana;
@@ -50,7 +53,6 @@ namespace CSV2SQL.Forms
             consoleCapture.ConsoleWriteLine += ConsoleCapture_ConsoleWriteLine;
 
             this.codeControl.Interpreted += CodeControl_Interpreted;
-
         }
 
         private void CodeControl_Interpreted(object sender, InterpretEventArgs e)
@@ -66,7 +68,10 @@ namespace CSV2SQL.Forms
 
                 if (!e.Result.Success)
                 {
-                    outputTextBox.AppendText(e.Result.Exception.Message.ToString());
+                    if (e.Result.Exception is ThreadAbortException)
+                        outputTextBox.AppendText("Execution was cancelled by the user.");
+                    else
+                        outputTextBox.AppendText(e.Result.Exception.Message.ToString());
                 }
                 else if (!e.OnlyParsed)
                 {
@@ -77,6 +82,9 @@ namespace CSV2SQL.Forms
                 lastParseCorrect = parsedOk;
 
                 runButton.Enabled = lastParseCorrect;
+                codeControl.Enabled = true;
+                stopButton.Enabled = false;
+                running = false;
             });
         }
 
@@ -98,10 +106,20 @@ namespace CSV2SQL.Forms
             });
         }
 
-        public void ExecuteRunAction()
+        public void Execute()
         {
-            Thread t = new Thread(new ThreadStart(Interpret));
-            t.Start();
+            executingThread = new Thread(new ThreadStart(Interpret));
+            executingThread.Start();
+            running = true;
+        }
+
+        public void StopExecution()
+        {
+            if (running)
+            {
+                stopButton.Enabled = false;
+                executingThread.Abort();
+            }
         }
 
         private void Interpret()
@@ -112,25 +130,45 @@ namespace CSV2SQL.Forms
 
                 codeControl.Enabled = false;
                 runButton.Enabled = false;
+                stopButton.Enabled = true;
+            });
 
-                codeControl.Interpret(false);
+            codeControl.Interpret(false);
 
+            splitContainer.Panel2.Invoke((MethodInvoker)delegate
+            {
                 runButton.Enabled = true;
                 codeControl.Enabled = true;
-
+                stopButton.Enabled = false;
+                running = false;
                 codeControl.Focus();
             });
         }
 
         private void ScriptForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if (running)
+            {
+                if (MessageBox.Show(this, "Script is still running. Do you want to stop execution and exit?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+                    == DialogResult.Yes)
+                {
+                    StopExecution();
+                }
+                else
+                {
+                    e.Cancel = true;
+                    return;
+                }
+            }
+
             consoleCapture.ConsoleWrite -= ConsoleCapture_ConsoleWrite;
             consoleCapture.ConsoleWriteLine -= ConsoleCapture_ConsoleWriteLine;
+            codeControl.Interpreted -= CodeControl_Interpreted;
         }
 
         private void runButton_Click(object sender, EventArgs e)
         {
-            ExecuteRunAction();
+            Execute();
         }
 
         private void runButton_MouseEnter(object sender, EventArgs e)
@@ -141,6 +179,11 @@ namespace CSV2SQL.Forms
         private void runButton_MouseLeave(object sender, EventArgs e)
         {
             Cursor = Cursors.Default;
+        }
+
+        private void stopButton_Click(object sender, EventArgs e)
+        {
+            StopExecution();
         }
     }
 }

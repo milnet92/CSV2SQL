@@ -221,38 +221,46 @@ namespace CSV2SQL.Forms.Controls
             configuration.DatabaseConfiguration.IntegratedSecurity = connection.AuthenticationMethod == Enums.AuthenticationMethod.Windows;
             configuration.DatabaseConfiguration.User = connection.UserName;
 
-            using (var session = DQSAutomateInterpreter.Core.Environment.CreateOneTimeSession(new InterpreterOptions()
+            try
             {
-                Arguments = new string[0],
-                Configuration = configuration,
-                StartingFileName = FileName,
-                Mode = InterpreterOptions.InterpreterExecutionMode.Release
-            }))
-            {
-
-                if (parseOnly)
+                using (var session = DQSAutomateInterpreter.Core.Environment.CreateOneTimeSession(new InterpreterOptions()
                 {
-                    try
+                    Arguments = new string[0],
+                    Configuration = configuration,
+                    StartingFileName = FileName,
+                    Mode = InterpreterOptions.InterpreterExecutionMode.Release
+                }))
+                {
+
+                    if (parseOnly)
                     {
-                        _ = session.Parse(fctb.Text);
-                    }
-                    catch (Exception ex)
-                    {
-                        result = new InterpreterResult()
+                        try
                         {
-                            Exception = ex
-                        };
+                            _ = session.Parse(fctb.Text);
+                        }
+                        catch (Exception ex)
+                        {
+                            result = new InterpreterResult()
+                            {
+                                Exception = ex
+                            };
+                        }
                     }
-                }
-                else
-                {
-                    result = session.Execute(fctb.Text);
+                    else
+                    {
+                        result = session.Execute(fctb.Text);
+                    }
+
+                    OnInterpret(new InterpretEventArgs(result, parseOnly));
                 }
 
-                OnInterpret(new InterpretEventArgs(result, parseOnly));
+                return result;
             }
-
-            return result;
+            catch (Exception ex)
+            {
+                OnInterpret(new InterpretEventArgs(new InterpreterResult(ex), parseOnly));
+                return result;
+            }
         }
     }
 }

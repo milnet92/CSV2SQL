@@ -31,6 +31,7 @@
             this.toolBoxPannel = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.runButton = new System.Windows.Forms.ToolStripButton();
+            this.stopButton = new System.Windows.Forms.ToolStripButton();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.codePanel = new System.Windows.Forms.Panel();
             this.outputTextBox = new System.Windows.Forms.TextBox();
@@ -55,7 +56,8 @@
             // 
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.runButton});
+            this.runButton,
+            this.stopButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1009, 32);
@@ -74,6 +76,17 @@
             this.runButton.MouseEnter += new System.EventHandler(this.runButton_MouseEnter);
             this.runButton.MouseLeave += new System.EventHandler(this.runButton_MouseLeave);
             // 
+            // stopButton
+            // 
+            this.stopButton.Enabled = false;
+            this.stopButton.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stopButton.Image = global::CSV2SQL.Properties.Resources.close;
+            this.stopButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.stopButton.Name = "stopButton";
+            this.stopButton.Size = new System.Drawing.Size(73, 29);
+            this.stopButton.Text = "Stop";
+            this.stopButton.Click += new System.EventHandler(this.stopButton_Click);
+            // 
             // splitContainer
             // 
             this.splitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -89,7 +102,7 @@
             // 
             this.splitContainer.Panel2.Controls.Add(this.outputTextBox);
             this.splitContainer.Size = new System.Drawing.Size(1009, 581);
-            this.splitContainer.SplitterDistance = 378;
+            this.splitContainer.SplitterDistance = 332;
             this.splitContainer.TabIndex = 3;
             // 
             // codePanel
@@ -97,19 +110,21 @@
             this.codePanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.codePanel.Location = new System.Drawing.Point(0, 0);
             this.codePanel.Name = "codePanel";
-            this.codePanel.Size = new System.Drawing.Size(1009, 378);
+            this.codePanel.Size = new System.Drawing.Size(1009, 332);
             this.codePanel.TabIndex = 6;
             // 
             // outputTextBox
             // 
+            this.outputTextBox.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.outputTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.outputTextBox.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.outputTextBox.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.outputTextBox.ForeColor = System.Drawing.SystemColors.Window;
             this.outputTextBox.Location = new System.Drawing.Point(0, 0);
             this.outputTextBox.Multiline = true;
             this.outputTextBox.Name = "outputTextBox";
             this.outputTextBox.ReadOnly = true;
             this.outputTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.outputTextBox.Size = new System.Drawing.Size(1009, 199);
+            this.outputTextBox.Size = new System.Drawing.Size(1009, 245);
             this.outputTextBox.TabIndex = 2;
             this.outputTextBox.WordWrap = false;
             // 
@@ -144,5 +159,6 @@
         private System.Windows.Forms.TextBox outputTextBox;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton runButton;
+        private System.Windows.Forms.ToolStripButton stopButton;
     }
 }
