@@ -120,6 +120,28 @@ namespace CSV2SQL.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to import &quot;Core&quot;
+        ///import &quot;Sql&quot;
+        ///import &quot;Threading&quot;
+        ///
+        ///{
+        ///    // instantiate loaded table
+        ///    record = Record(&quot;##&quot;)
+        ///    
+        ///    // select row count
+        ///    select countOf(*) as count from record
+        ///    
+        ///	// print the result
+        ///    print(&quot;Total records: &quot; + record.count)
+        ///}.
+        /// </summary>
+        internal static string ScriptTemplate {
+            get {
+                return ResourceManager.GetString("ScriptTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap settings {

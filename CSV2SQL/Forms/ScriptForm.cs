@@ -1,18 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+using System.Data.Common;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using CSV2SQL.Core;
 using CSV2SQL.Forms.Controls;
 using CSV2SQL.Properties;
 using CVS2SQL.Core.Scripting;
-using DQSAutomateInterpreter.Core;
 using DQSAutomateInterpreter.Core.Exceptions;
 
 namespace CSV2SQL.Forms
@@ -37,7 +31,7 @@ namespace CSV2SQL.Forms
             var connection = DBConnectionManager.Instance.GetConnectionById(fileTable.ConnectionId);
             this.Text = $"Execute script: {fileTable.TableName} ({connection.Server}.{connection.DataBase})";
 
-            string sourceCode = Settings.Default.SourceCode;
+            string sourceCode = Resources.ScriptTemplate;
             sourceCode = sourceCode.Replace("##", fileTable.TableName);
 
             codeControl = new CodeControl(this, fileTable, sourceCode)
@@ -53,11 +47,40 @@ namespace CSV2SQL.Forms
             consoleCapture.ConsoleWriteLine += ConsoleCapture_ConsoleWriteLine;
 
             this.codeControl.Interpreted += CodeControl_Interpreted;
+            this.codeControl.KeyDown += OnKeyDown;
+            this.KeyDown += OnKeyDown;
+            this.outputTextBox.KeyDown += OnKeyDown;
+            this.DragEnter += ScriptForm_DragEnter;
+            this.DragDrop += ScriptForm_DragDrop;
+        }
+
+        private void ScriptForm_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = !running && e.Data.GetDataPresent(DataFormats.FileDrop) ? DragDropEffects.All : DragDropEffects.None;
+        }
+
+        private void ScriptForm_DragDrop(object sender, DragEventArgs e)
+        {
+            if (!e.Data.GetDataPresent(DataFormats.FileDrop)) return;
+
+            string[] data = (string[])e.Data.GetData(DataFormats.FileDrop);
+        }
+
+        private void OnKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F5)
+            {
+                Execute();
+            }
+            else if (e.Control && e.KeyCode == Keys.C)
+            {
+                StopExecution();
+            }
         }
 
         private void CodeControl_Interpreted(object sender, InterpretEventArgs e)
         {
-            var parsedOk = !(e.Result.Exception?.InnerException is ParseException);
+            var parsedOk = !(e.Result.Exception?.InnerException is ParseException || e.Result.Exception is ParseException);
 
             codePanel.Invoke((MethodInvoker)delegate
             {
@@ -76,7 +99,7 @@ namespace CSV2SQL.Forms
                 else if (!e.OnlyParsed)
                 {
                     outputTextBox.AppendText("\n");
-                    outputTextBox.AppendText($"Execution finished in {e.Result.ExecutionTime.Seconds} second(s).");
+                    outputTextBox.AppendText($"Execution finished in {e.Result.ExecutionTime}.");
                 }
 
                 lastParseCorrect = parsedOk;
@@ -108,6 +131,8 @@ namespace CSV2SQL.Forms
 
         public void Execute()
         {
+            if (!lastParseCorrect || running) return;
+
             executingThread = new Thread(new ThreadStart(Interpret));
             executingThread.Start();
             running = true;

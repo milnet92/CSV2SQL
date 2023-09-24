@@ -36,16 +36,16 @@ namespace CSV2SQL.Forms.Controls
 
         TextStyle brownStyle = new TextStyle(Brushes.SandyBrown, null, FontStyle.Regular);
         TextStyle blueStyle = new TextStyle(new SolidBrush(Color.FromArgb(86, 156, 214)), null, FontStyle.Regular);
-        TextStyle italicGreenStyle = new TextStyle(Brushes.LightGreen, null, FontStyle.Italic);
+        TextStyle italicGreenStyle = new TextStyle(Brushes.Green, null, FontStyle.Italic);
         TextStyle greyStyle = new TextStyle(new SolidBrush(Color.FromArgb(112, 128, 144)), null, FontStyle.Regular);
         TextStyle greenStyle = new TextStyle(new SolidBrush(Color.FromArgb(0, 150, 150)), null, FontStyle.Regular);
         TextStyle orangeStyle = new TextStyle(new SolidBrush(Color.FromArgb(255, 69, 0)), null, FontStyle.Regular);
 
         public static Regex StringRegex = new Regex(@""".*?""");
-        public static Regex KeyWordRegex = new Regex(@"\b(class|var|func|static|false|true|if|else|while|do|for|break|in|continue|return|import|foreach|throw|try|catch|finally|lambda)\b");
+        public static Regex KeyWordRegex = new Regex(@"\b(class|var|func|as|static|false|true|if|else|while|do|for|break|in|continue|return|import|enum|foreach|throw|try|catch|finally|lambda)\b");
         public static Regex SqlKeyWordRegex = new Regex(@"\b(select|from|ttsbegin|ttscommit|ttsabort|select_recordset|update_recordset|inner|outer|join|insert_recordset|top|like)\b");
-        public static Regex CommentRegex = new Regex(@"//.*$");
-        public static Regex LiteralRegex = new Regex(@"\b(null|\d\d*?\.?\d*)\b");
+        public static Regex CommentRegex = new Regex(@"\/\/.*");
+        public static Regex LiteralRegex = new Regex(@"\b(null|string|integer|bool|char|\d\d*?\.?\d*)\b");
 
         public static Regex NativeClassesRegex = GetNativeClassesRegex();
         public static Regex NativeFunctionsRegex = GetNativeFunctionsRegex();
@@ -103,8 +103,8 @@ namespace CSV2SQL.Forms.Controls
             tb.LeftPadding = 17;
 
             tb.Language = Language.Custom;
-            tb.DelayedTextChangedInterval = 500;
-            tb.DelayedEventsInterval = 500;
+            tb.DelayedTextChangedInterval = 300;
+            tb.DelayedEventsInterval = 300;
             tb.ShowFoldingLines = false;
             tb.HighlightingRangeType = HighlightingRangeType.VisibleRange;
 
@@ -127,24 +127,16 @@ namespace CSV2SQL.Forms.Controls
 
         private void Tb_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyData == (Keys.Control | Keys.S))
-            {
-                OnSave(new EventArgs());
-            }
-            
-            if (e.KeyData == Keys.F5)
-            {
-                // Disabled: ScriptForm.ExecuteRunAction();
-            }
+            this.OnKeyDown(e);
         }
 
         private void fctb_TextChangedDelayed(object sender, TextChangedEventArgs e)
         {
             e.ChangedRange.ClearFoldingMarkers();
-            e.ChangedRange.ClearStyle(orangeStyle, brownStyle, blueStyle, italicGreenStyle);
+            e.ChangedRange.ClearStyle(orangeStyle, brownStyle, italicGreenStyle, blueStyle);
 
-            e.ChangedRange.SetStyle(brownStyle, StringRegex);
             e.ChangedRange.SetStyle(italicGreenStyle, CommentRegex);
+            e.ChangedRange.SetStyle(brownStyle, StringRegex);
             e.ChangedRange.SetStyle(blueStyle, KeyWordRegex);
             e.ChangedRange.SetStyle(blueStyle, SqlKeyWordRegex);
             e.ChangedRange.SetStyle(orangeStyle, LiteralRegex);
