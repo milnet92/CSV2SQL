@@ -187,7 +187,6 @@ namespace CSV2SQL.Forms
             this.lbConnections.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbConnections.FormattingEnabled = true;
             this.lbConnections.IntegralHeight = false;
-            this.lbConnections.ItemHeight = 30;
             this.lbConnections.Location = new System.Drawing.Point(4, 29);
             this.lbConnections.Margin = new System.Windows.Forms.Padding(4);
             this.lbConnections.Name = "lbConnections";
@@ -247,7 +246,6 @@ namespace CSV2SQL.Forms
             this.lbFiles.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbFiles.FormattingEnabled = true;
             this.lbFiles.IntegralHeight = false;
-            this.lbFiles.ItemHeight = 30;
             this.lbFiles.Location = new System.Drawing.Point(4, 29);
             this.lbFiles.Margin = new System.Windows.Forms.Padding(4);
             this.lbFiles.Name = "lbFiles";

@@ -21,6 +21,7 @@ namespace CSV2SQL.Forms.Controls
             DoubleBuffered = true;
             DrawMode = DrawMode.OwnerDrawVariable;
             IntegralHeight = false;
+            ItemHeight = 50;
         }
 
         public void OnCompleted()
@@ -78,6 +79,21 @@ namespace CSV2SQL.Forms.Controls
             }
 
             return null;
+        }
+
+        protected override void OnSelectedIndexChanged(EventArgs e)
+        {
+            this.BeginUpdate();
+
+            base.OnSelectedIndexChanged(e);
+
+            for (int i = 0; i < Items.Count; i++)
+            {
+                var item = (CustomListBoxItem)Items[i];
+                item.IsSelected = SelectedIndices.Contains(i);
+            }
+
+            this.EndUpdate();
         }
 
         public void OnNext(DBConnectionObserverContract value)

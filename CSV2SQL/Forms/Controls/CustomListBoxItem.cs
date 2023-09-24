@@ -22,6 +22,18 @@ namespace CSV2SQL.Forms.Controls
         public string Text { get; set; }
         public Image Image { get; set; }
 
+        public bool IsSelected;
+
+        public Color ForegroundColor { get; set; } = Color.Black;
+        public Color SelectedForegroundColor { get; set; } = Color.White;
+
+        protected Color FontColor { get
+            {
+                if (IsSelected) return SelectedForegroundColor;
+                else return ForegroundColor;
+            }
+        }
+
         public CustomListBoxItem(string title, string text, Image image)
         {
             Title = title;
@@ -45,8 +57,8 @@ namespace CSV2SQL.Forms.Controls
 
             e.DrawFocusRectangle();
 
-            TextRenderer.DrawText(e.Graphics, this.Title, titleFont, titleRect, Color.Black, TextFormatFlags.Left);
-            TextRenderer.DrawText(e.Graphics, this.Text, e.Font, textRect, Color.Black, TextFormatFlags.Left);
+            TextRenderer.DrawText(e.Graphics, this.Title, titleFont, titleRect, FontColor, TextFormatFlags.Left);
+            TextRenderer.DrawText(e.Graphics, this.Text, e.Font, textRect, FontColor, TextFormatFlags.Left);
         }
     }
 }

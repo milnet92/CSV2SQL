@@ -44,7 +44,7 @@ namespace CSV2SQL.Forms.Controls
 
             TextRenderer.DrawText(e.Graphics, $"{FileTable.TotalRows} registers \n  " +
                 (FileTable.IsReadyToUse ? "" : "(Loading) ") +
-                $"{DBConnectionManager.Instance.GetConnectionById(FileTable.ConnectionId).DataBase}", regFont, e.Bounds, Color.Black, TextFormatFlags.Right);
+                $"{DBConnectionManager.Instance.GetConnectionById(FileTable.ConnectionId).DataBase}", regFont, e.Bounds, FontColor, TextFormatFlags.Right);
         }
     }
 }
