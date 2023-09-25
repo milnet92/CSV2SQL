@@ -71,7 +71,7 @@ namespace CSV2SQL.Core
                 Separator = ApplicationConfig.Instance.DefaultSeparator,
                 TableName = fileTable.TableName,
                 Template = template,
-                EnableScripts = fileTable.FileLoadOptions.EnableScripts,
+                CreatePrimaryKey = fileTable.FileLoadOptions.CreatePrimaryKey,
             });
 
         }

@@ -47,7 +47,7 @@ namespace CSV2SQL.Forms
             tbPath.Text = FileTable.Path;
             tbTableName.Text = FileTable.TableName;
             tbSchema.Text = FileTable.Schema;
-            cbEnableScripting.Checked = FileTable.FileLoadOptions.EnableScripts;
+            cbPrimaryKey.Checked = FileTable.FileLoadOptions.CreatePrimaryKey;
 
             foreach (var col in FileTable.Columns)
             {
@@ -86,7 +86,7 @@ namespace CSV2SQL.Forms
 
                 if (result == DialogResult.OK)
                 {
-                    FileTable.FileLoadOptions.EnableScripts = cbEnableScripting.Checked;
+                    FileTable.FileLoadOptions.CreatePrimaryKey = cbPrimaryKey.Checked;
 
                     if (tableNameChanged)
                     {
@@ -109,7 +109,7 @@ namespace CSV2SQL.Forms
                             Separator = ApplicationConfig.Instance.DefaultSeparator,
                             TableName = FileTable.TableName,
                             Template = template,
-                            EnableScripts = FileTable.FileLoadOptions.EnableScripts,
+                            CreatePrimaryKey = FileTable.FileLoadOptions.CreatePrimaryKey,
                         });
                     }
                 }

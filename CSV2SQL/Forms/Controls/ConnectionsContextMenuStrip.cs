@@ -38,8 +38,8 @@ namespace CSV2SQL.Forms.Controls
 
             if (connection.Status != Enums.DBConnectionStatus.Pending)
             {
-                AddItemAction("Edit", Edit);
-                AddItemAction("Delete", Delete);
+                AddItemAction("Edit", Edit, CSV2SQL.Properties.Resources.edit);
+                AddItemAction("Delete", Delete, CSV2SQL.Properties.Resources.remove);
             }
         }
 

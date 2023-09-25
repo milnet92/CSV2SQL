@@ -25,7 +25,7 @@ namespace CSV2SQL.Forms
 
         private void label2_Click(object sender, EventArgs e)
         {
-            Process.Start("https://github.com/milnet92");
+            Process.Start("https://github.com/milnet92/CSV2SQL");
         }
     }
 }

@@ -72,9 +72,9 @@
             this.authorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.authorLabel.Location = new System.Drawing.Point(151, 76);
             this.authorLabel.Name = "authorLabel";
-            this.authorLabel.Size = new System.Drawing.Size(178, 16);
+            this.authorLabel.Size = new System.Drawing.Size(80, 16);
             this.authorLabel.TabIndex = 3;
-            this.authorLabel.Text = "Oriol Ribes Amenós 2023 (C)";
+            this.authorLabel.Text = "milnet - 2019";
             // 
             // label2
             // 

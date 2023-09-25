@@ -34,7 +34,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txSchema = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cbScriptsEnabled = new System.Windows.Forms.CheckBox();
+            this.cbPrimaryKey = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tbPreviewRowCount = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -102,7 +102,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.cbScriptsEnabled);
+            this.groupBox2.Controls.Add(this.cbPrimaryKey);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.tbPreviewRowCount);
             this.groupBox2.Controls.Add(this.label5);
@@ -119,25 +119,25 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "File";
             // 
-            // cbScriptsEnabled
+            // cbPrimaryKey
             // 
-            this.cbScriptsEnabled.AutoSize = true;
-            this.cbScriptsEnabled.Location = new System.Drawing.Point(155, 123);
-            this.cbScriptsEnabled.Margin = new System.Windows.Forms.Padding(4);
-            this.cbScriptsEnabled.Name = "cbScriptsEnabled";
-            this.cbScriptsEnabled.Size = new System.Drawing.Size(18, 17);
-            this.cbScriptsEnabled.TabIndex = 9;
-            this.cbScriptsEnabled.UseVisualStyleBackColor = true;
+            this.cbPrimaryKey.AutoSize = true;
+            this.cbPrimaryKey.Location = new System.Drawing.Point(155, 123);
+            this.cbPrimaryKey.Margin = new System.Windows.Forms.Padding(4);
+            this.cbPrimaryKey.Name = "cbPrimaryKey";
+            this.cbPrimaryKey.Size = new System.Drawing.Size(18, 17);
+            this.cbPrimaryKey.TabIndex = 9;
+            this.cbPrimaryKey.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(33, 122);
+            this.label6.Location = new System.Drawing.Point(16, 122);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(103, 16);
+            this.label6.Size = new System.Drawing.Size(120, 16);
             this.label6.TabIndex = 8;
-            this.label6.Text = "Enable scripting";
+            this.label6.Text = "Create primary key";
             // 
             // tbPreviewRowCount
             // 
@@ -256,7 +256,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tbPreviewRowCount;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.CheckBox cbScriptsEnabled;
+        private System.Windows.Forms.CheckBox cbPrimaryKey;
         private System.Windows.Forms.Label label6;
     }
 }

@@ -21,7 +21,7 @@ namespace CSV2SQL.Forms
         Thread executingThread = null;
         bool running = false;
 
-        public ScriptForm(FileTable fileTable)
+        public ScriptForm(FileTable fileTable, string sourceCode)
         {
             this.Icon = CSV2SQL.Properties.Resources.banana;
             this.fileTable = fileTable;
@@ -30,9 +30,6 @@ namespace CSV2SQL.Forms
 
             var connection = DBConnectionManager.Instance.GetConnectionById(fileTable.ConnectionId);
             this.Text = $"Execute script: {fileTable.TableName} ({connection.Server}.{connection.DataBase})";
-
-            string sourceCode = Resources.ScriptTemplate;
-            sourceCode = sourceCode.Replace("##", fileTable.TableName);
 
             codeControl = new CodeControl(this, fileTable, sourceCode)
             {
@@ -50,20 +47,6 @@ namespace CSV2SQL.Forms
             this.codeControl.KeyDown += OnKeyDown;
             this.KeyDown += OnKeyDown;
             this.outputTextBox.KeyDown += OnKeyDown;
-            this.DragEnter += ScriptForm_DragEnter;
-            this.DragDrop += ScriptForm_DragDrop;
-        }
-
-        private void ScriptForm_DragEnter(object sender, DragEventArgs e)
-        {
-            e.Effect = !running && e.Data.GetDataPresent(DataFormats.FileDrop) ? DragDropEffects.All : DragDropEffects.None;
-        }
-
-        private void ScriptForm_DragDrop(object sender, DragEventArgs e)
-        {
-            if (!e.Data.GetDataPresent(DataFormats.FileDrop)) return;
-
-            string[] data = (string[])e.Data.GetData(DataFormats.FileDrop);
         }
 
         private void OnKeyDown(object sender, KeyEventArgs e)

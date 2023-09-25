@@ -66,7 +66,7 @@ namespace CSV2SQL.Core.Database
                     " " + "null";
             }
 
-            if (fileTable.FileLoadOptions.EnableScripts)
+            if (fileTable.FileLoadOptions.CreatePrimaryKey)
                 command += ", internal_RecordIdentifier INT IDENTITY(1, 1) primary key";
 
             command += ")";

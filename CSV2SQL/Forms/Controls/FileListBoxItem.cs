@@ -14,7 +14,7 @@ namespace CSV2SQL.Forms.Controls
     {
         public readonly FileTable FileTable;
 
-        public FileListBoxItem(FileTable fileTable, string path, string tableName) : base(path, tableName, CSV2SQL.Properties.Resources.table)
+        public FileListBoxItem(FileTable fileTable, string path, string tableName) : base(path, tableName, CSV2SQL.Properties.Resources.sqlfile)
         {
             this.FileTable = fileTable;
         }

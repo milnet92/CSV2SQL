@@ -1,0 +1,13 @@
+﻿import "Core"
+import "Sql"
+
+{
+    // instantiate loaded table
+    record = Record("%temptable%")
+    
+    // select row count
+    select countOf(*) as count from record
+    
+	// print the result
+    print(record.count)
+}

@@ -43,7 +43,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.comboConnection = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.cbEnableScripting = new System.Windows.Forms.CheckBox();
+            this.cbPrimaryKey = new System.Windows.Forms.CheckBox();
             this.label8 = new System.Windows.Forms.Label();
             this.tbSchema = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -205,7 +205,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.cbEnableScripting);
+            this.groupBox3.Controls.Add(this.cbPrimaryKey);
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.tbSchema);
             this.groupBox3.Controls.Add(this.label2);
@@ -218,26 +218,25 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Table options";
             // 
-            // cbEnableScripting
+            // cbPrimaryKey
             // 
-            this.cbEnableScripting.AutoSize = true;
-            this.cbEnableScripting.Location = new System.Drawing.Point(335, 69);
-            this.cbEnableScripting.Margin = new System.Windows.Forms.Padding(4);
-            this.cbEnableScripting.Name = "cbEnableScripting";
-            this.cbEnableScripting.Size = new System.Drawing.Size(18, 17);
-            this.cbEnableScripting.TabIndex = 11;
-            this.cbEnableScripting.UseVisualStyleBackColor = true;
-            this.cbEnableScripting.CheckedChanged += new System.EventHandler(this.cbEnableScripting_CheckedChanged);
+            this.cbPrimaryKey.AutoSize = true;
+            this.cbPrimaryKey.Location = new System.Drawing.Point(335, 70);
+            this.cbPrimaryKey.Margin = new System.Windows.Forms.Padding(4);
+            this.cbPrimaryKey.Name = "cbPrimaryKey";
+            this.cbPrimaryKey.Size = new System.Drawing.Size(18, 17);
+            this.cbPrimaryKey.TabIndex = 11;
+            this.cbPrimaryKey.UseVisualStyleBackColor = true;
+            this.cbPrimaryKey.CheckedChanged += new System.EventHandler(this.cbEnableScripting_CheckedChanged);
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(221, 69);
+            this.label8.Location = new System.Drawing.Point(221, 55);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(103, 16);
+            this.label8.Size = new System.Drawing.Size(106, 46);
             this.label8.TabIndex = 10;
-            this.label8.Text = "Enable scripting";
+            this.label8.Text = "Create primary key";
             // 
             // tbSchema
             // 
@@ -270,7 +269,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 33);
+            this.label1.Location = new System.Drawing.Point(30, 32);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 16);
@@ -323,7 +322,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbSchema;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.CheckBox cbEnableScripting;
+        private System.Windows.Forms.CheckBox cbPrimaryKey;
         private System.Windows.Forms.Label label8;
     }
 }

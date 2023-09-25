@@ -33,6 +33,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tbSchema = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbPrimaryKey = new System.Windows.Forms.CheckBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.cbFirstRowHeader = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tbSeparator = new System.Windows.Forms.TextBox();
@@ -44,8 +46,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btCancel = new System.Windows.Forms.Button();
             this.btAccept = new System.Windows.Forms.Button();
-            this.cbEnableScripts = new System.Windows.Forms.CheckBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -88,7 +88,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.cbEnableScripts);
+            this.groupBox1.Controls.Add(this.cbPrimaryKey);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.cbFirstRowHeader);
             this.groupBox1.Controls.Add(this.label4);
@@ -106,6 +106,26 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Load options";
+            // 
+            // cbPrimaryKey
+            // 
+            this.cbPrimaryKey.AutoSize = true;
+            this.cbPrimaryKey.Location = new System.Drawing.Point(155, 175);
+            this.cbPrimaryKey.Margin = new System.Windows.Forms.Padding(4);
+            this.cbPrimaryKey.Name = "cbPrimaryKey";
+            this.cbPrimaryKey.Size = new System.Drawing.Size(18, 17);
+            this.cbPrimaryKey.TabIndex = 9;
+            this.cbPrimaryKey.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 176);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(120, 16);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "Create primary key";
             // 
             // cbFirstRowHeader
             // 
@@ -220,26 +240,6 @@
             this.btAccept.UseVisualStyleBackColor = true;
             this.btAccept.Click += new System.EventHandler(this.btAccept_Click);
             // 
-            // cbEnableScripts
-            // 
-            this.cbEnableScripts.AutoSize = true;
-            this.cbEnableScripts.Location = new System.Drawing.Point(155, 175);
-            this.cbEnableScripts.Margin = new System.Windows.Forms.Padding(4);
-            this.cbEnableScripts.Name = "cbEnableScripts";
-            this.cbEnableScripts.Size = new System.Drawing.Size(18, 17);
-            this.cbEnableScripts.TabIndex = 9;
-            this.cbEnableScripts.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(23, 176);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(103, 16);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "Enable scripting";
-            // 
             // FileLoadOptionsDefaultDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -278,7 +278,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btCancel;
         private System.Windows.Forms.Button btAccept;
-        private System.Windows.Forms.CheckBox cbEnableScripts;
+        private System.Windows.Forms.CheckBox cbPrimaryKey;
         private System.Windows.Forms.Label label7;
     }
 }

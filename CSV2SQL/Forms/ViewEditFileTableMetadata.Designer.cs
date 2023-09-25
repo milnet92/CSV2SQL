@@ -42,7 +42,7 @@
             this.btCancel = new System.Windows.Forms.Button();
             this.btAccept = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.cbEnableScripting = new System.Windows.Forms.CheckBox();
+            this.cbPrimaryKey = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgColumns)).BeginInit();
             this.SuspendLayout();
             // 
@@ -179,26 +179,26 @@
             this.label5.Location = new System.Drawing.Point(22, 94);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(112, 16);
+            this.label5.Size = new System.Drawing.Size(78, 16);
             this.label5.TabIndex = 10;
-            this.label5.Text = "Scripting enabled";
+            this.label5.Text = "Primary key";
             // 
-            // cbEnableScripting
+            // cbPrimaryKey
             // 
-            this.cbEnableScripting.AutoSize = true;
-            this.cbEnableScripting.Location = new System.Drawing.Point(154, 93);
-            this.cbEnableScripting.Name = "cbEnableScripting";
-            this.cbEnableScripting.Size = new System.Drawing.Size(18, 17);
-            this.cbEnableScripting.TabIndex = 11;
-            this.cbEnableScripting.UseVisualStyleBackColor = true;
-            this.cbEnableScripting.CheckedChanged += new System.EventHandler(this.cbEnableScripting_CheckedChanged);
+            this.cbPrimaryKey.AutoSize = true;
+            this.cbPrimaryKey.Location = new System.Drawing.Point(140, 93);
+            this.cbPrimaryKey.Name = "cbPrimaryKey";
+            this.cbPrimaryKey.Size = new System.Drawing.Size(18, 17);
+            this.cbPrimaryKey.TabIndex = 11;
+            this.cbPrimaryKey.UseVisualStyleBackColor = true;
+            this.cbPrimaryKey.CheckedChanged += new System.EventHandler(this.cbEnableScripting_CheckedChanged);
             // 
             // ViewEditFileTableMetadata
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(676, 498);
-            this.Controls.Add(this.cbEnableScripting);
+            this.Controls.Add(this.cbPrimaryKey);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dgColumns);
             this.Controls.Add(this.btAccept);
@@ -235,6 +235,6 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn DataType;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnLength;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.CheckBox cbEnableScripting;
+        private System.Windows.Forms.CheckBox cbPrimaryKey;
     }
 }

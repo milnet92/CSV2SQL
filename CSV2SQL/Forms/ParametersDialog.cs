@@ -22,7 +22,7 @@ namespace CSV2SQL.Forms
             cbShowOptions.Checked = ApplicationConfig.Instance.ShowOptions;
             cbChangeTableName.Checked = ApplicationConfig.Instance.ChangeTableNameForSameFile;
             tbPreviewRowCount.Text = ApplicationConfig.Instance.PreviewRowCount.ToString();
-            cbScriptsEnabled.Checked = ApplicationConfig.Instance.EnableScritps;
+            cbPrimaryKey.Checked = ApplicationConfig.Instance.CreatePrimaryKey;
         }
 
         private void btAccept_Click(object sender, EventArgs e)
@@ -32,7 +32,7 @@ namespace CSV2SQL.Forms
             ApplicationConfig.Instance.ShowOptions = cbShowOptions.Checked;
             ApplicationConfig.Instance.ChangeTableNameForSameFile = cbChangeTableName.Checked;
             ApplicationConfig.Instance.PreviewRowCount = int.Parse(tbPreviewRowCount.Text);
-            ApplicationConfig.Instance.EnableScritps = cbScriptsEnabled.Checked;
+            ApplicationConfig.Instance.CreatePrimaryKey = cbPrimaryKey.Checked;
 
             ApplicationConfig.Save();
 

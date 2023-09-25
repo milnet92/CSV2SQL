@@ -41,8 +41,8 @@ namespace CSV2SQL.Core
         [XmlElement("PreviewRowCount")]
         public int PreviewRowCount { get; set; } = 100;
 
-        [XmlElement("EnableScripts")]
-        public bool EnableScritps { get; set; }
+        [XmlElement("CreatePrimaryKey")]
+        public bool CreatePrimaryKey { get; set; }
 
         public ApplicationConfig()
         {

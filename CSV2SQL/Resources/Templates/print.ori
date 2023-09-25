@@ -1,0 +1,18 @@
+﻿import "Core"
+import "Sql"
+import "Threading"
+
+{
+    // instantiate loaded table
+    record = Record("%temptable%")
+    
+    // iterate through all the records
+    while select * from record
+	{
+		// print the result
+		print(record)
+		
+		// wait 1 second
+		Thread.sleep(1000)
+	}
+}

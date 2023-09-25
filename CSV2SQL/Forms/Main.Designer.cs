@@ -34,6 +34,8 @@ namespace CSV2SQL.Forms
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.tsApplication = new System.Windows.Forms.ToolStrip();
+            this.parametersButton = new System.Windows.Forms.ToolStripButton();
+            this.aboutButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.helpToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -41,10 +43,10 @@ namespace CSV2SQL.Forms
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutConnections = new System.Windows.Forms.TableLayoutPanel();
-            this.lbConnections = new CSV2SQL.Forms.Controls.CustomListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.lblTitleFiles = new System.Windows.Forms.Label();
+            this.lbConnections = new CSV2SQL.Forms.Controls.CustomListBox();
             this.lbFiles = new CSV2SQL.Forms.Controls.CustomListBox();
             this.mainTab = new CSV2SQL.Forms.Controls.FileTab();
             this.tsApplication.SuspendLayout();
@@ -65,23 +67,44 @@ namespace CSV2SQL.Forms
             // 
             this.tsApplication.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.tsApplication.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.helpToolStripButton});
+            this.parametersButton,
+            this.aboutButton});
             this.tsApplication.Location = new System.Drawing.Point(0, 0);
             this.tsApplication.Name = "tsApplication";
             this.tsApplication.Size = new System.Drawing.Size(1137, 27);
             this.tsApplication.TabIndex = 0;
             this.tsApplication.Text = "toolStrip1";
             // 
+            // parametersButton
+            // 
+            this.parametersButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.parametersButton.Image = global::CSV2SQL.Properties.Resources.configure;
+            this.parametersButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.parametersButton.Name = "parametersButton";
+            this.parametersButton.Size = new System.Drawing.Size(29, 24);
+            this.parametersButton.Text = "Parameters";
+            this.parametersButton.Click += new System.EventHandler(this.parametersButton_Click);
+            // 
+            // aboutButton
+            // 
+            this.aboutButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.aboutButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.aboutButton.Image = global::CSV2SQL.Properties.Resources.info;
+            this.aboutButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.aboutButton.Name = "aboutButton";
+            this.aboutButton.Size = new System.Drawing.Size(29, 24);
+            this.aboutButton.Text = "About";
+            this.aboutButton.Click += new System.EventHandler(this.aboutButton_Click);
+            // 
             // toolStripButton1
             // 
             this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = global::CSV2SQL.Properties.Resources.settings;
+            this.toolStripButton1.Image = global::CSV2SQL.Properties.Resources.configure;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(29, 28);
+            this.toolStripButton1.Size = new System.Drawing.Size(29, 24);
             this.toolStripButton1.Text = "Settings";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            this.toolStripButton1.Click += new System.EventHandler(this.parametersButton_Click);
             // 
             // helpToolStripButton
             // 
@@ -92,7 +115,6 @@ namespace CSV2SQL.Forms
             this.helpToolStripButton.Name = "helpToolStripButton";
             this.helpToolStripButton.Size = new System.Drawing.Size(29, 24);
             this.helpToolStripButton.Text = "About";
-            this.helpToolStripButton.Click += new System.EventHandler(this.helpToolStripButton_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -159,7 +181,7 @@ namespace CSV2SQL.Forms
             // 
             this.splitContainer2.Panel2.Controls.Add(this.tableLayoutPanel2);
             this.splitContainer2.Size = new System.Drawing.Size(384, 590);
-            this.splitContainer2.SplitterDistance = 207;
+            this.splitContainer2.SplitterDistance = 205;
             this.splitContainer2.SplitterWidth = 5;
             this.splitContainer2.TabIndex = 0;
             // 
@@ -177,24 +199,8 @@ namespace CSV2SQL.Forms
             this.tableLayoutConnections.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutConnections.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutConnections.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutConnections.Size = new System.Drawing.Size(384, 207);
+            this.tableLayoutConnections.Size = new System.Drawing.Size(384, 205);
             this.tableLayoutConnections.TabIndex = 1;
-            // 
-            // lbConnections
-            // 
-            this.lbConnections.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbConnections.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.lbConnections.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbConnections.FormattingEnabled = true;
-            this.lbConnections.IntegralHeight = false;
-            this.lbConnections.Location = new System.Drawing.Point(4, 29);
-            this.lbConnections.Margin = new System.Windows.Forms.Padding(4);
-            this.lbConnections.Name = "lbConnections";
-            this.lbConnections.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.lbConnections.Size = new System.Drawing.Size(376, 174);
-            this.lbConnections.TabIndex = 7;
-            this.lbConnections.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbConnections_MouseDoubleClick);
-            this.lbConnections.Resize += new System.EventHandler(this.lbConnections_Resize);
             // 
             // label1
             // 
@@ -222,7 +228,7 @@ namespace CSV2SQL.Forms
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(384, 378);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(384, 380);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // lblTitleFiles
@@ -238,6 +244,23 @@ namespace CSV2SQL.Forms
             this.lblTitleFiles.Text = "Files";
             this.lblTitleFiles.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // lbConnections
+            // 
+            this.lbConnections.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbConnections.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.lbConnections.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbConnections.FormattingEnabled = true;
+            this.lbConnections.IntegralHeight = false;
+            this.lbConnections.ItemHeight = 50;
+            this.lbConnections.Location = new System.Drawing.Point(4, 29);
+            this.lbConnections.Margin = new System.Windows.Forms.Padding(4);
+            this.lbConnections.Name = "lbConnections";
+            this.lbConnections.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.lbConnections.Size = new System.Drawing.Size(376, 172);
+            this.lbConnections.TabIndex = 7;
+            this.lbConnections.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbConnections_MouseDoubleClick);
+            this.lbConnections.Resize += new System.EventHandler(this.lbConnections_Resize);
+            // 
             // lbFiles
             // 
             this.lbFiles.AllowDrop = true;
@@ -246,10 +269,11 @@ namespace CSV2SQL.Forms
             this.lbFiles.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbFiles.FormattingEnabled = true;
             this.lbFiles.IntegralHeight = false;
+            this.lbFiles.ItemHeight = 50;
             this.lbFiles.Location = new System.Drawing.Point(4, 29);
             this.lbFiles.Margin = new System.Windows.Forms.Padding(4);
             this.lbFiles.Name = "lbFiles";
-            this.lbFiles.Size = new System.Drawing.Size(376, 345);
+            this.lbFiles.Size = new System.Drawing.Size(376, 347);
             this.lbFiles.TabIndex = 1;
             this.lbFiles.DragDrop += new System.Windows.Forms.DragEventHandler(this.lbFiles_DragDrop);
             this.lbFiles.DragEnter += new System.Windows.Forms.DragEventHandler(this.lbFiles_DragEnter);
@@ -314,6 +338,8 @@ namespace CSV2SQL.Forms
         private Controls.CustomListBox lbFiles;
         private ToolStripButton toolStripButton1;
         private ToolStripButton helpToolStripButton;
+        private ToolStripButton parametersButton;
+        private ToolStripButton aboutButton;
     }
 }
 

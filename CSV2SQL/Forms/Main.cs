@@ -258,14 +258,14 @@ namespace CSV2SQL.Forms
             return isOk ? retOptions : null;
         }
 
-        private void helpToolStripButton_Click(object sender, EventArgs e)
-        {
-            new About().ShowDialog();
-        }
-
-        private void toolStripButton1_Click(object sender, EventArgs e)
+        private void parametersButton_Click(object sender, EventArgs e)
         {
             new ParametersDialog().ShowDialog();
+        }
+
+        private void aboutButton_Click(object sender, EventArgs e)
+        {
+            new About().ShowDialog();
         }
     }
 }

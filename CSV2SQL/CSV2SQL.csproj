@@ -210,6 +210,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="Resources\Templates\print.ori">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\update.ori">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="Forms\AddEditConnection.resx">
       <DependentUpon>AddEditConnection.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -270,7 +276,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Resources\testfile.dqs" />
+    <Content Include="Resources\Templates\count.ori">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -278,8 +286,6 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="banana.ico" />
-    <None Include="Resources\run.png" />
-    <None Include="Resources\logo.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

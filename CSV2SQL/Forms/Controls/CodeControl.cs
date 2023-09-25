@@ -34,7 +34,7 @@ namespace CSV2SQL.Forms.Controls
         public event SaveEventHandler Save;
         public event InterpretEventHandler Interpreted;
 
-        TextStyle brownStyle = new TextStyle(Brushes.SandyBrown, null, FontStyle.Regular);
+        TextStyle brownStyle = new TextStyle(Brushes.Brown, null, FontStyle.Regular);
         TextStyle blueStyle = new TextStyle(new SolidBrush(Color.FromArgb(86, 156, 214)), null, FontStyle.Regular);
         TextStyle italicGreenStyle = new TextStyle(Brushes.Green, null, FontStyle.Italic);
         TextStyle greyStyle = new TextStyle(new SolidBrush(Color.FromArgb(112, 128, 144)), null, FontStyle.Regular);
@@ -42,7 +42,7 @@ namespace CSV2SQL.Forms.Controls
         TextStyle orangeStyle = new TextStyle(new SolidBrush(Color.FromArgb(255, 69, 0)), null, FontStyle.Regular);
 
         public static Regex StringRegex = new Regex(@""".*?""");
-        public static Regex KeyWordRegex = new Regex(@"\b(class|var|func|as|static|false|true|if|else|while|do|for|break|in|continue|return|import|enum|foreach|throw|try|catch|finally|lambda)\b");
+        public static Regex KeyWordRegex = new Regex(@"\b(class|var|func|as|static|false|true|if|else|while|do|for|break|in|continue|return|import|enum|foreach|throw|try|catch|finally|lambda|using)\b");
         public static Regex SqlKeyWordRegex = new Regex(@"\b(select|from|ttsbegin|ttscommit|ttsabort|select_recordset|update_recordset|inner|outer|join|insert_recordset|top|like)\b");
         public static Regex CommentRegex = new Regex(@"\/\/.*");
         public static Regex LiteralRegex = new Regex(@"\b(null|string|integer|bool|char|\d\d*?\.?\d*)\b");
@@ -70,6 +70,7 @@ namespace CSV2SQL.Forms.Controls
 
         private void Initialize()
         {
+
             fctb = CreateColoredRichBox();
 
             this.Controls.Add(fctb);
@@ -77,6 +78,23 @@ namespace CSV2SQL.Forms.Controls
             this.GotFocus += CodeTab_GotFocus;
 
             SetNotSavedChar();
+        }
+
+        private void Tb_DragDrop(object sender, DragEventArgs e)
+        {
+            if (!e.Data.GetDataPresent(DataFormats.FileDrop) || !fctb.Enabled) return;
+
+            string[] data = (string[])e.Data.GetData(DataFormats.FileDrop);
+
+            if (data.Length > 0)
+            {
+                fctb.Text = File.ReadAllText(data[0]);
+            }
+        }
+
+        private void Tb_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = (fctb.Enabled && e.Data.GetDataPresent(DataFormats.FileDrop)) ? DragDropEffects.All : DragDropEffects.None;
         }
 
         public void OnSave(EventArgs e)
@@ -107,10 +125,16 @@ namespace CSV2SQL.Forms.Controls
             tb.DelayedEventsInterval = 300;
             tb.ShowFoldingLines = false;
             tb.HighlightingRangeType = HighlightingRangeType.VisibleRange;
+            tb.LeftBracket = '{';
+            tb.RightBracket = '}';
+            tb.AutoCompleteBrackets = true;
 
             tb.TextChangedDelayed += fctb_TextChangedDelayed;
             tb.TextChanged += Tb_TextChanged;
             tb.KeyDown += Tb_KeyDown;
+            tb.DragEnter += Tb_DragEnter;
+            tb.DragDrop += Tb_DragDrop;
+            tb.AllowDrop = true;
 
             return tb;
         }

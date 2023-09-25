@@ -36,7 +36,8 @@ namespace CSV2SQL.Forms
             tbSeparator.Text = options.Separator;
             cbFirstRowHeader.Checked = options.FirstRowHeader;
             tbTableName.Text = options.TableName;
-            
+            cbPrimaryKey.Checked = options.CreatePrimaryKey;
+
             this.Text = $"Import data to {connection.DataBase}";
         }
 
@@ -51,7 +52,7 @@ namespace CSV2SQL.Forms
             Options.Schema = tbSchema.Text;
             Options.FirstRowHeader = cbFirstRowHeader.Checked;
             Options.TableName = tbTableName.Text;
-            Options.EnableScripts = cbEnableScripts.Checked;
+            Options.CreatePrimaryKey = cbPrimaryKey.Checked;
 
             DialogResult = DialogResult.OK;
 

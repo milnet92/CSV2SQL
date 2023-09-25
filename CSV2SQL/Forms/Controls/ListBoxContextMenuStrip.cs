@@ -56,10 +56,40 @@ namespace CSV2SQL.Forms.Controls
             var item = NoItemContextMenuStrip.Items.Add(action);
             item.Click += onClick;
         }
-        public void AddItemAction(string action, EventHandler onClick)
+
+        public ToolStripMenuItem AddSubmenu(string menuName, Bitmap image = null)
         {
-            if (ItemContextMenuStrip.Items.ContainsKey(action)) return;
+            var item = new System.Windows.Forms.ToolStripMenuItem();
+
+            item.Name = menuName;
+            item.Text = menuName;
+
+            if (image != null)
+                item.Image = image;
+
+            ItemContextMenuStrip.Items.Add(item);
+
+            return item;
+        }
+
+        public void AddItemAction(ToolStripMenuItem menu, string action, EventHandler onClick, Bitmap image = null)
+        {
+            var item = menu.DropDownItems.Add(action);
+
+            if (image != null)
+                item.Image = image;
+
+            item.Click += onClick;
+
+        }
+
+        public void AddItemAction(string action, EventHandler onClick, Bitmap image = null)
+        {
             var item = ItemContextMenuStrip.Items.Add(action);
+
+            if (image != null)
+                item.Image = image;
+
             item.Click += onClick;
         }
 

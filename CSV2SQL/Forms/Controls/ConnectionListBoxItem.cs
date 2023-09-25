@@ -13,7 +13,7 @@ namespace CSV2SQL.Forms.Controls
     {
         public int ConnectionId { get; set; }
 
-        public ConnectionListBoxItem(int connectionId, string server, string database) : base(server, database, CSV2SQL.Properties.Resources.dbIcon)
+        public ConnectionListBoxItem(int connectionId, string server, string database) : base(server, database, CSV2SQL.Properties.Resources.database)
         {
             ConnectionId = connectionId;
         }

@@ -47,7 +47,7 @@ namespace CSV2SQL.Forms
             tbSchema.Text = Options[selected.ConnectionId].Schema;
             tbSeparator.Text = Options[selected.ConnectionId].Separator;
             cbFirstRowHeader.Checked = Options[selected.ConnectionId].FirstRowHeader;
-            cbEnableScripting.Checked = Options[selected.ConnectionId].EnableScripts;
+            cbPrimaryKey.Checked = Options[selected.ConnectionId].CreatePrimaryKey;
 
             var con = DBConnectionManager.Instance.GetConnectionById(selected.ConnectionId);
             tbServer.Text = con.Server;
@@ -132,7 +132,7 @@ namespace CSV2SQL.Forms
         private void cbEnableScripting_CheckedChanged(object sender, EventArgs e)
         {
             var selected = (ConnectionDropDownItem)comboConnection.SelectedItem;
-            Options[selected.ConnectionId].EnableScripts = cbEnableScripting.Checked;
+            Options[selected.ConnectionId].CreatePrimaryKey = cbPrimaryKey.Checked;
         }
     }
 

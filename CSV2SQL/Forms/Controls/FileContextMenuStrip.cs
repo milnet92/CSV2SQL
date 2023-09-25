@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.Tracing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,19 +25,67 @@ namespace CSV2SQL.Forms.Controls
 
             if (selectedFileTable.IsReadyToUse)
             {
-                if (selectedFileTable.FileLoadOptions.EnableScripts)
-                    AddItemAction("Create script", CreateScript);
+                if (selectedFileTable.FileLoadOptions.CreatePrimaryKey)
+                {
+                    var menu = AddSubmenu("Create script", CSV2SQL.Properties.Resources.script);
 
-                AddItemAction("Edit metadata", ViewEditMetadata);
-                AddItemAction("Reload", Reload);
-                AddItemAction("Delete", Delete);
-                AddItemAction("Open file", OpenFile);
+                    AddItemAction(menu, "Count", CountScript);
+                    AddItemAction(menu, "Print", PrintScript);
+                    AddItemAction(menu, "Update", UpdateScript);
+                }
+
+                AddItemAction("Edit metadata", ViewEditMetadata, CSV2SQL.Properties.Resources.edit);
+                AddItemAction("Reload", Reload, CSV2SQL.Properties.Resources.reload);
+                AddItemAction("Delete", Delete, CSV2SQL.Properties.Resources.remove);
+                AddItemAction("Open file", OpenFile, CSV2SQL.Properties.Resources.open);
             }
         }
-        public void CreateScript(object sender, EventArgs e)
+        private void CreateScript(string sourceCode)
         {
-            new ScriptForm(GetSelectedFileItem().FileTable).ShowDialog();
+            new ScriptForm(GetSelectedFileItem().FileTable, sourceCode).ShowDialog();
         }
+
+        private void CountScript(object sender, EventArgs e)
+        {
+            string sourceCode = File.ReadAllText("Resources/Templates/count.ori");
+            sourceCode = sourceCode.Replace("%temptable%", GetSelectedFileItem().FileTable.TableName);
+
+            CreateScript(sourceCode);
+        }
+
+        private void PrintScript(object sender, EventArgs e)
+        {
+            string sourceCode = File.ReadAllText("Resources/Templates/print.ori");
+            sourceCode = sourceCode.Replace("%temptable%", GetSelectedFileItem().FileTable.TableName);
+
+            CreateScript(sourceCode);
+        }
+
+        private void UpdateScript(object sender, EventArgs e)
+        {
+            FileTable table = GetSelectedFileItem().FileTable;
+            string sourceCode = File.ReadAllText("Resources/Templates/update.ori");
+            sourceCode = sourceCode.Replace("%temptable%", table.TableName); ;
+
+            StringBuilder stringBuilder = new StringBuilder();
+            foreach (var column in table.Columns)
+            {
+                stringBuilder.AppendLine($"\t\t// record.{column.Name} = {GetDefaultValueFromType(column.Type)}");
+            }
+
+            sourceCode = sourceCode.Replace("%update%", stringBuilder.ToString());
+
+            CreateScript(sourceCode);
+        }
+
+        private string GetDefaultValueFromType(Type type)
+        {
+            if (type == typeof(string) || type == typeof(DateTime))
+                return "\"\"";
+            else
+                return "0";
+        }
+
 
         public void OpenFile(object sender, EventArgs e)
         {

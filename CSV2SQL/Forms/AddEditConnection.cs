@@ -70,7 +70,7 @@ namespace CSV2SQL.Forms
                 return;
             }
 
-            DBConnectionManager.Instance.AddOrEditAsync(ConnectionId, tbServer.Text, tbDatabase.Text,
+            _ = DBConnectionManager.Instance.AddOrEditAsync(ConnectionId, tbServer.Text, tbDatabase.Text,
                 StringToAuthenticationMethod((string)cbAuthenticationMethod.SelectedItem),
                 tbUserName.Text,
                 tbPassword.Text != DEF_PASSW ? SecurityHelper.StringToSecureString(tbPassword.Text) : password,
