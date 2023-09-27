@@ -3,7 +3,7 @@ import "Sql"
 
 {
     // instantiate loaded table
-    record = Record("%temptable%")
+    record = Record("[%temptable%]")
     
     // select row count
     select countOf(*) as count from record

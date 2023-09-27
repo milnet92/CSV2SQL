@@ -4,7 +4,7 @@ import "Threading"
 
 {
     // instantiate loaded table
-    record = Record("%temptable%")
+    record = Record("[%temptable%]")
 
     // iterate through all the records
     while select * from record
